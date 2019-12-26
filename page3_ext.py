@@ -31,8 +31,6 @@ with open("lables.pickle", 'rb') as f:
 print(labels)
 
 cap = cv2.VideoCapture(0)
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 200)
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 300)
 
 while (True):
     ret, frame = cap.read()
@@ -41,11 +39,6 @@ while (True):
     try:
         face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
         result = recognizer.predict(face)
-
-        #id_, conf = recognizer.predict(roi_gray)
-            #print(id_)
-        #print(conf)
-        # print
 
         if result[1] < 500:
             name = labels[result[0]]
